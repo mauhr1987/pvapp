@@ -1,0 +1,190 @@
+/*Game Screen*/
+#game-header{
+    text-align: center;
+    padding: 10px 0;
+    background: #dedede;
+}
+#game-header h2{
+	margin: 0;
+}
+
+#score-bar {
+    background: #f2f2f2;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+#game-coins {
+    text-align: right;
+}
+
+#verb-example, #verb-definition, #verb-name-answer {
+    margin: 10px 0;
+    padding: 20px;
+    background: #f2f2f2;
+    min-height: 125px;
+}
+
+#verb-example > span, #verb-definition span, #verb-name-answer span{
+	display: block;
+    text-align: center;
+    margin: 30px 0;
+    font-size: 20px;
+    line-height: 40px;
+    color: #565656;
+}
+
+#verb-example > span .input-container{
+    position: relative;
+    display: inline;
+}
+
+#verb-name-answer span{
+	color: #3ad463;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+#verb-example .answer-background{
+    background-color: #E0EBEF;
+    margin: 0;
+    padding: 8px 10px;
+    border-radius: 2px;
+}
+#verb-example .answer-word-container {
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+    opacity: 0;
+}
+#verb-example .answer-background > span{
+    visibility: hidden;
+    font-weight: bold;
+}
+
+#verb-example span strong {
+    color: #f2f2f2;
+    border-bottom: 2px solid #000;
+}
+
+#verb-translation span, #verb-meaning span {
+    display: block;
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+#verb-input {
+    position: relative;
+}
+#verb-answer {
+    position: absolute;
+    top: -7px;
+    left: 1px;
+    background: none;
+    height: 38px;
+    border: 0;
+    margin: 0 5px;
+    padding: 5px;
+    font-weight: bold;
+}
+#verb-answer:focus {
+    outline: none;
+}
+button#check-answer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50px;
+    padding: 0 15px;
+}
+#verb-clues{
+	list-style: none;
+	padding: 0;
+	text-align: center;
+}
+#verb-clues li{
+	display: inline-block;
+}
+#verb-clues li span {
+	cursor: pointer;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background: #f2f2f2;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    color: #333;
+    font-size: 20px;
+}
+.clue-used{
+	opacity: 0.4;
+}
+
+#user-answer {
+	position: relative;
+    color: #fff;
+    padding-left: 55px !important;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#user-answer.wrong-answer {
+    background: rgba(255, 84, 0, 0.42);
+}
+#user-answer.right-answer {
+    background: rgba(58, 212, 99, 0.6);
+}
+#user-answer span {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+    border-right: 1px solid #fff;
+}
+
+/*Summary*/
+#summary-box-heading{
+    margin-top: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+#verb-scores{
+    text-align: right;
+}
+
+#summary-box ul {
+    margin: 20px 0;
+    list-style: none;
+    padding: 0;
+    font-size: 15px;
+}
+
+#summary-box ul li {
+    line-height: 24px;
+}
+
+#summary-box .col-xs-4 {
+    text-align: right;
+}
+
+#summary-data-heading span, #summary-data-scores span{
+    font-weight: bold;
+    display: block;
+    font-size: 18px;
+    color: #5a5a5a;
+}
+#summary-box-footer{
+    float: left;
+    width: 100%;
+    padding: 8px 0;
+    background: #E0EBEF;
+}
+#summary-data-scores span{
+    text-align: right;
+}

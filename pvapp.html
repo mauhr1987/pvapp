@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>My App</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/simple-popup.css">
+</head>
+<body>
+	<label>Level:</label> 
+	<select id="level-filter" onchange="filter(this)">
+		<option value="all">All</option>
+		<option value="beginner">Beginner</option>
+		<option value="medium">Medium</option>
+		<option value="advance">Advance</option>
+	</select>
+
+	<input id="item-search" type="text"><input type="submit" value="Limpiar" onclick="ClearSearchField()">
+	<div id="myapp-list"></div>
+
+
+	<div id="popup-list" class="popup-wrapper hide">
+        <div class="popup-content">
+            <div class="popup-title">
+                <button type="button" class="popup-close">&times;</button>
+                <h3 id="popup-title">Phrasal Verbs</h3>
+            </div>
+            <div id="popup-body" class="popup-body"></div>
+        </div>
+     </div>
+
+	<script src="pverbs.js"></script>
+	<script src="js/simple-popup.js"></script>
+	<script src="js/popup-list.js"></script>
+	<script src="js/list.js"></script>
+</body>
+</html>
