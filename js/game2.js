@@ -14,7 +14,7 @@ function randomVerbs(){
     getNewVerbAndRender(pVerbs);
 }
 
-function getNewVerbAndRender(next) {
+function getNewVerbAndRender(next) { 
     verbPointsId = document.getElementById('verb-score');
     let verbExample = document.getElementById('verb-example');
     let verbMeaning = document.getElementById('verb-meaning');
@@ -31,9 +31,10 @@ function getNewVerbAndRender(next) {
     verbMeaning.innerHTML = '<span>' + pVerbs[currentVerb].meaning + '</span>';
     inputAnswer = document.getElementById('verb-answer');
     inputAnswer.focus();
-    setTimeout(function(){
-      attemptsCounter = 0;
-    }, 0);
+    resetAttemptsCounter(function(){
+        attemptsCounter = 0;
+    });
+
 }
 
 function getNextVerb(currentVerb = 0, length, next) {
@@ -52,7 +53,7 @@ function readInput(element, e) {
     if (inputAnswerValue == correctAnswer) {
       attemptsCounter++;
       speakAndContinue();
-      if (attemptsCounter == 1) {
+      if (attemptsCounter == 0) {
         scoresArray.push(verbPoints);
       }
     }else{
@@ -64,13 +65,13 @@ function readInput(element, e) {
         scoresArray.push(verbPoints);
       }
     }
-    if (attemptsCounter == 1) {
+    if (attemptsCounter == 0) {
       userScore += verbPoints;
     }
   }
 }
 
-function speakAndContinue() {
+function speakAndContinue(callback) {
   inputAnswer.value = '';
   showAnswer.style.color = "#00d038";
   showAnswer.style.opacity = "1";
@@ -103,6 +104,10 @@ function speakAnswer() {
     utterThis.voice = voices[3];
   }
   synth.speak(utterThis);
+}
+
+function resetAttemptsCounter(callback){
+  callback();
 }
 
 function gameSummary(){
