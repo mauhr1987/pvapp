@@ -1,7 +1,7 @@
 var pVerbs = pverbs;
 var length = pVerbs.length;
 var verbPoints = 1;
-var currentVerb, verbPointsId, showAnswer, inputAnswerValue, attemptsCounter, scoreVerb;
+var currentVerb, verbPointsId, showAnswer, inputAnswer, attemptsCounter, scoreVerb;
 var userScore = 0;
 var scoresArray = [];
 var currentView = document.getElementById('game-by-sentences');
@@ -29,8 +29,8 @@ function getNewVerbAndRender(next) {
     verbExample.innerHTML = '<span>' + pVerbs[currentVerb].example.replace(reg, replaceStr) + '</span>';
     verbTranslation.innerHTML = '<span>' + pVerbs[currentVerb].translation + '</span>';
     verbMeaning.innerHTML = '<span>' + pVerbs[currentVerb].meaning + '</span>';
-    inputAnswerValue = document.getElementById('verb-answer');
-    inputAnswerValue.focus();
+    inputAnswer = document.getElementById('verb-answer');
+    inputAnswer.focus();
     setTimeout(function(){
       attemptsCounter = 0;
     }, 0);
@@ -43,33 +43,26 @@ function getNextVerb(currentVerb = 0, length, next) {
    }
 }
 
-function readInput(el, e) {
-  let inputAnswer = document.getElementById('verb-answer').value.toLowerCase();
+function readInput(element, e) {
+  let inputAnswerValue = document.getElementById('verb-answer').value.toLowerCase();
   let correctAnswer = pVerbs[currentVerb].name.toLowerCase();
   showAnswer = document.querySelector('.answer-word-container');
   showAnswer.style.opacity = "0";
-  if (e.keyCode == 13 && /\S/.test(inputAnswer)) {
-    if (inputAnswer == correctAnswer) {
-      verbPointsId.innerHTML = '+' + verbPoints;
+  if (e.keyCode == 13 && /\S/.test(inputAnswerValue)) {
+    if (inputAnswerValue == correctAnswer) {
       attemptsCounter++;
-      speakAndContinue(inputAnswerValue);
+      speakAndContinue();
       if (attemptsCounter == 1) {
         scoresArray.push(verbPoints);
       }
-      // if (attemptsCounter > 1) {
-      //   pVerbs[currentVerb].attempts -= 1;
-      // }
     }else{
       verbPoints = 0;
       attemptsCounter++;
       verbPointsId.innerHTML = '+' + verbPoints;
-      speakAnswer(inputAnswerValue);
+      speakAnswer();
       if (attemptsCounter == 1) {
         scoresArray.push(verbPoints);
       }
-      // if (attemptsCounter <= 1) {
-      //   pVerbs[currentVerb].attempts += 1;
-      // }
     }
     if (attemptsCounter == 1) {
       userScore += verbPoints;
@@ -77,8 +70,8 @@ function readInput(el, e) {
   }
 }
 
-function speakAndContinue(answer) {
-  answer.value = '';
+function speakAndContinue() {
+  inputAnswer.value = '';
   showAnswer.style.color = "#00d038";
   showAnswer.style.opacity = "1";
   var utterThis = new SpeechSynthesisUtterance(pVerbs[currentVerb].example);
@@ -98,8 +91,8 @@ function speakAndContinue(answer) {
   }
 }
 
-function speakAnswer(answer) {
-  answer.value = '';
+function speakAnswer() {
+  inputAnswer.value = '';
   showAnswer.style.color = "#ff0200";
   showAnswer.style.opacity = "0.5";
   var utterThis = new SpeechSynthesisUtterance(pVerbs[currentVerb].name);
