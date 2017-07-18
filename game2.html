@@ -18,10 +18,31 @@
 			<div id="verb-meaning"></div>
 		</div>
 	</div>
-	
+	<div id="selectPvList" class="modal" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title">Phrasal Verbs</h2>
+				</div>
+			<div class="modal-body">
+			    <select name="pv-list" id="pv-list"></select>
+			</div>
+				<div class="modal-footer">
+			    	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="pverbsg2.js"></script>
 	<script src="js/game2.js"></script>
+	<script type="text/javascript">
+	    $(window).on('load',function(){
+	        $('#selectPvList').modal('show');
+	    });
+	</script>
 </body> 
 </html>
