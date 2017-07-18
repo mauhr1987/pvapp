@@ -71,7 +71,7 @@ function readInput(element, e) {
   }
 }
 
-function speakAndContinue(callback) {
+function speakAndContinue() {
   inputAnswer.value = '';
   showAnswer.style.color = "#00d038";
   showAnswer.style.opacity = "1";
@@ -84,6 +84,7 @@ function speakAndContinue(callback) {
   }
   synth.speak(utterThis);
   utterThis.onend = function(event) {
+    console.log('end');
     if (currentVerb < length - 1) {
       getNewVerbAndRender('next');
     }else{
