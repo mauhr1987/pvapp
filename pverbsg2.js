@@ -1,4 +1,4 @@
-var pverbs = [{
+var pvList1 = [{
   "attempts": 0,
   "name": "Break down",
   "example": "You should break down this lesson into smaller units.",
@@ -58,4 +58,23 @@ var pverbs = [{
   "example": "Take a taxi and get off at the hospital.",
   "meaning": "Bajarse, apearse de (autobús, tranvía, avión, barco).",
   "translation": "Toma un taxi y bajate en el hospital."
+}];
+var pvList2 = [{
+  "attempts": 0,
+  "name": "Got on",
+  "example": "She got on the bus at the bus station.",
+  "meaning": "Montarse en (autobús, tranvía, avión, barco) - [pasado].",
+  "translation": "Ella se monto al autobús en la estación de bus."
+},{
+  "attempts": 0,
+  "name": "Get over",
+  "example": "It took me a few days to get over my cold.",
+  "meaning": "Recuperarse.",
+  "translation": "Me tomó unos pocos días recuperarme de mi resfriado"
+},{
+  "attempts": 0,
+  "name": "Give away",
+  "example": "He has some things to give away.",
+  "meaning": "Regalar, donar.",
+  "translation": "El tiene algunas cosas para regalar."
 }];

@@ -1,4 +1,11 @@
-var pVerbs = pverbs;
+var pvLists = ['pvList1', 'pvList2'];
+var selectPvList = document.getElementById('pv-list');
+for( pvList in pvLists ) {
+    listNumber = parseInt([pvList]) + 1;
+    selectPvList.add( new Option( 'Phrasal Verb List ' + listNumber, pvLists[pvList]  ) );
+};
+
+var pVerbs = window[selectPvList.value];
 var length = pVerbs.length;
 var verbPoints = 1;
 var currentVerb, verbPointsId, showAnswer, inputAnswer, attemptsCounter, scoreVerb;
@@ -8,6 +15,11 @@ var currentView = document.getElementById('game-by-sentences');
 
 var synth = window.speechSynthesis;
 var inputTxt = document.querySelector('#verb-answer');
+
+function changePvList(){
+  pVerbs = window[selectPvList.value];
+  randomVerbs();
+}
 
 function randomVerbs(){
     pVerbs.sort(function(a, b){return 0.5 - Math.random()});
