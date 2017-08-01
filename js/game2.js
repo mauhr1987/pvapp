@@ -6,9 +6,9 @@ for( pvList in pvLists ) {
 };
 
 var pVerbs = window[selectPvList.value];
-var length = pVerbs.length;
 var verbPoints = 1;
-var currentVerb, verbPointsId, showAnswer, inputAnswer, attemptsCounter, scoreVerb;
+var length = pVerbs.length;
+var length, currentVerb, verbPointsId, showAnswer, inputAnswer, attemptsCounter, scoreVerb;
 var userScore = 0;
 var scoresArray = [];
 var currentView = document.getElementById('game-by-sentences');
@@ -18,6 +18,7 @@ var inputTxt = document.querySelector('#verb-answer');
 
 function changePvList(){
   pVerbs = window[selectPvList.value];
+  length = pVerbs.length;
   randomVerbs();
 }
 
@@ -96,7 +97,6 @@ function speakAndContinue() {
   }
   synth.speak(utterThis);
   utterThis.onend = function(event) {
-    console.log('end');
     if (currentVerb < length - 1) {
       getNewVerbAndRender('next');
     }else{
